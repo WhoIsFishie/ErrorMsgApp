@@ -1,0 +1,46 @@
+﻿<Window x:Class="ErrorMsgApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ErrorMsgApp"
+        mc:Ignorable="d"
+        Title="Error Gen" Height="450" Width="240" ResizeMode="CanMinimize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.08*"></RowDefinition>
+            <RowDefinition ></RowDefinition>
+            <RowDefinition Height="0.07*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20">Error Gen</TextBlock>
+
+        <StackPanel Margin="5" Grid.Row="1">
+            <Label>Select Type</Label>
+            <ComboBox x:Name="TypeSelector" DropDownClosed="TypeSelector_DropDownClosed">
+                <ComboBoxItem>
+                    Error
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Information
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Warning
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Question
+                </ComboBoxItem>
+            </ComboBox>
+            <Label>Title</Label>
+            <TextBox IsEnabled="False" Name="TITLE"  TextChanged="TITLE_TextChanged"></TextBox>
+            <Label>Message</Label>
+            <TextBox Margin="0,0,0,5" IsEnabled="False" Name="MSG" TextChanged="MSG_TextChanged" SpellCheck.IsEnabled="True" AcceptsReturn="True" MaxHeight="200" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>
+
+            <Button IsEnabled="False" Click="Button_Click" Name="genbutton">Generate</Button>
+
+        </StackPanel>
+        <StatusBar Grid.Row="2">
+            <StatusBarItem>made by fishie</StatusBarItem>
+        </StatusBar>
+    </Grid>
+</Window>

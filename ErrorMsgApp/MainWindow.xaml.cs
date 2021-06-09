@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -18,7 +19,7 @@ namespace ErrorMsgApp
     public partial class MainWindow : Window
     {
         //hold the image var
-        MessageBoxImage image;
+        MessageBoxIcon image;
         public MainWindow()
         {
             InitializeComponent();
@@ -32,19 +33,19 @@ namespace ErrorMsgApp
             switch (TypeSelector.Text)
             {
                 case "Error":
-                    image = MessageBoxImage.Error;
+                    image = MessageBoxIcon.Error;
                     break;
                 case "Information":
-                    image = MessageBoxImage.Information;
+                    image = MessageBoxIcon.Information;
                     break;
                 case "Warning":
-                    image = MessageBoxImage.Warning;
+                    image = MessageBoxIcon.Warning;
                     break;
                 case "Question":
-                    image = MessageBoxImage.Question;
+                    image = MessageBoxIcon.Question;
                     break;
                 default:
-                    image = MessageBoxImage.None;
+                    image = MessageBoxIcon.None;
                     break;
             }
         }
@@ -61,7 +62,7 @@ namespace ErrorMsgApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show(MSG.Text, TITLE.Text, MessageBoxButton.OK, image);
+            System.Windows.Forms.MessageBox.Show(MSG.Text, TITLE.Text, MessageBoxButtons.OK, image);
         }
     }
 }

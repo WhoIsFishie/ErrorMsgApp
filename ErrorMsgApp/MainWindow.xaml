@@ -31,16 +31,36 @@
                     Question
                 </ComboBoxItem>
             </ComboBox>
+            <Label>Select Button</Label>
+            <ComboBox x:Name="BtnSelector" DropDownClosed="BtnSelector_DropDownClosed">
+                <ComboBoxItem>
+                    Abort Retry Ignore
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    OK Cancel
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Yes No
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    Yes No Cancel
+                </ComboBoxItem>
+                <ComboBoxItem>
+                    OK
+                </ComboBoxItem>
+            </ComboBox>
             <Label>Title</Label>
             <TextBox IsEnabled="False" Name="TITLE"  TextChanged="TITLE_TextChanged"></TextBox>
             <Label>Message</Label>
-            <TextBox Margin="0,0,0,5" IsEnabled="False" Name="MSG" TextChanged="MSG_TextChanged" SpellCheck.IsEnabled="True" AcceptsReturn="True" MaxHeight="200" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>
+            <TextBox Margin="0,0,0,10" IsEnabled="False" Name="MSG" TextChanged="MSG_TextChanged" SpellCheck.IsEnabled="True" AcceptsReturn="True" MaxHeight="200" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>
 
-            <Button IsEnabled="False" Click="Button_Click" Name="genbutton">Generate</Button>
-
+            <Button IsEnabled="False" Margin="0,0,0,5" Click="Button_Click" Name="genbutton">Generate OK Popup</Button>
         </StackPanel>
         <StatusBar Grid.Row="2">
             <StatusBarItem>made by fishie</StatusBarItem>
+            <StatusBarItem HorizontalAlignment="Right">
+                <Button Content="About" Background="{x:Null}" Width="50" Name="about" Click="about_Click"/>
+            </StatusBarItem>
         </StatusBar>
     </Grid>
 </Window>

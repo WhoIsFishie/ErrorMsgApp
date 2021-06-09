@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,6 +21,7 @@ namespace ErrorMsgApp
     {
         //hold the image var
         MessageBoxIcon image;
+        MessageBoxButtons btn;
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace ErrorMsgApp
 
         private void TypeSelector_DropDownClosed(object sender, EventArgs e)
         {
-            TITLE.IsEnabled = true;
+            BtnSelector.IsEnabled = true;
 
             //set selected image to the image var
             switch (TypeSelector.Text)
@@ -50,6 +52,32 @@ namespace ErrorMsgApp
             }
         }
 
+        private void BtnSelector_DropDownClosed(object sender, EventArgs e)
+        {
+            TITLE.IsEnabled = true;
+            switch (BtnSelector.Text)
+            {
+                case "Abort Retry Ignore":
+                    btn = MessageBoxButtons.AbortRetryIgnore;
+                    break;
+                case "OK Cancel":
+                    btn = MessageBoxButtons.OKCancel;
+                    break;
+                case "Yes No":
+                    btn = MessageBoxButtons.YesNo;
+                    break;
+                case "Yes No Cancel":
+                    btn = MessageBoxButtons.YesNoCancel;
+                    break;
+                case "OK":
+                    btn = MessageBoxButtons.OK;
+                    break;
+                default:
+                    btn = MessageBoxButtons.OK;
+                    break;
+            }
+        }
+
         private void TITLE_TextChanged(object sender, TextChangedEventArgs e)
         {
             MSG.IsEnabled = true;
@@ -62,7 +90,12 @@ namespace ErrorMsgApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            System.Windows.Forms.MessageBox.Show(MSG.Text, TITLE.Text, MessageBoxButtons.OK, image);
+            System.Windows.Forms.MessageBox.Show(MSG.Text, TITLE.Text, btn, image);
+        }
+
+        private void about_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start("https://github.com/WhoIsFishie/ErrorMsgApp");
         }
     }
 }

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ErrorMsgApp"
         mc:Ignorable="d"
-        Title="Error Gen" Height="450" Width="240" ResizeMode="CanMinimize">
+        Title="Error Gen" Height="450" Width="240" ResizeMode="CanMinimize" Background="White" >
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.08*"></RowDefinition>
@@ -54,7 +54,7 @@
             <Label>Message</Label>
             <TextBox Margin="0,0,0,10" IsEnabled="False" Name="MSG" TextChanged="MSG_TextChanged" SpellCheck.IsEnabled="True" AcceptsReturn="True" MaxHeight="200" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"></TextBox>
 
-            <Button IsEnabled="False" Margin="0,0,0,5" Click="Button_Click" Name="genbutton">Generate OK Popup</Button>
+            <Button IsEnabled="False" Margin="0,0,0,5" Click="Button_Click" Name="genbutton">Generate</Button>
         </StackPanel>
         <StatusBar Grid.Row="2">
             <StatusBarItem>made by fishie</StatusBarItem>
